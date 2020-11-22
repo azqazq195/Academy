@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("li.collapsible:eq(0) > .content").load($("li.collapsible:eq(0) .title a").attr("href"));
+		$("li.collapsible:eq(0) a").addClass("selected");
+		$("li.collapsible").not(":eq(0)").find(".content").hide();
+		
+		$("li.collapsible h2.title a").click(function() {
+			// toggleClass : 클래스 속성을 없는 태그는 추가하고, 있는 태그는 제거함
+			$(this).toggleClass("selected");
+			// 클릭된 <a> 태그를 제외한 나머지 태그들은 'selected' 클래스 제거
+			$("li.collapsible h2.title a").not(this).removeClass("selected");
+			// 펼칠 <p> 선택
+			var target = $(this).parents(".collapsible").find(".content");
+			// 나머지 <p> 선택
+			var other = $("li.collapsible h2.title a").not(this)
+							.parents(".collapsible").find(".content");
+			target.slideToggle(200);
+			other.slideUp(200);
+			// 현재 클릭된 항목에 대한 내용이 열려진 상태라면, load() 함수로 내용을 불러와서 출력
+			if(target.css("display") != 'none') {
+				target.load($(this).attr("href"));
+			}
+			// <a> 무효화
+			return false;
+		});
+	});
+</script>
+
+<style type="text/css">
+body {
+	background: #252422;
+}
+ul {
+	padding: 0;
+	margin: 50px auto;
+	list-style: none;
+	width: 800px;
+}
+.title {
+	padding: 0; margin: 0;
+}
+.title > a {
+	display: block;
+	padding-top: 12px;
+	font-size: 14px;
+	text-indent: 12px;
+	text-decoration: none;
+	font-weight: bold;
+	color: white;
+	height: 23px;
+	background: url("img/background.jpg")
+}
+// 앞으로 생길 클래스를 미리 설정
+.selected {
+	background: url("img/background-select.jpg");
+}
+.content {
+	margin: 0;
+	background: #D4D0C9;
+	padding: 10px;
+	height: 200px;
+	overflow-y: auto; 
+}
+</style>
+</head>
+<body>
+	<ul>
+		<li class="collapsible">
+			<h2 class="title"><a href="txt/html5.txt">HTML5</a></h2>
+			<p class="content"></p>
+		</li>
+		
+		<li class="collapsible">
+			<h2 class="title"><a href="txt/jquery.txt">jQuery</a></h2>
+			<p class="content"></p>
+		</li>
+		
+		<li class="collapsible">
+			<h2 class="title"><a href="txt/bootstrap.txt">Bootstrap</a></h2>
+			<p class="content"></p>
+		</li>
+	</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

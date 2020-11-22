@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Foo foo0 = new Foo(); 와 같은 설정 -->
+	<bean id="foo0" class="sample2.Foo"/>
+	
+	<!-- Foo foo1 = new Foo("테스트"); 와 같은 설정 -->
+	<bean id="foo1" class="sample2.Foo">
+		<constructor-arg>
+			<value>테스트</value>
+		</constructor-arg>
+	</bean>
+	
+	<!-- Foo foo2 = new Foo(25, "Hello"); 와 같은 설정 -->
+	<bean id="foo2" class="sample2.Foo">
+		<constructor-arg>
+			<value>25</value>
+		</constructor-arg>
+		<constructor-arg value="Hello"/>
+	</bean>
+		
+	<!-- Foo foo34 = new Foo("안녕", true); 와 같은 설정 -->
+	<bean id="foo34" class="sample2.Foo">
+		<constructor-arg value="안녕"/>
+		<constructor-arg value="true" />
+	</bean>
+	
+	<!-- Foo foo3 = new Foo(50, "안녕", true); 와 같은 설정 -->
+	<bean id="foo3" class="sample2.Foo">
+		<constructor-arg value="50"/>
+		<constructor-arg value="안녕"/>
+		<constructor-arg value="true"/>
+	</bean>
+	
+	<!-- Foo foo4 = new Foo(50, "안녕", true); 와 같은 설정 -->
+	<bean id="foo4" class="sample2.Foo">
+		<constructor-arg index="1" type="String" value="안녕"/>
+		<constructor-arg index="0" type="int" value="50"/>		
+		<constructor-arg index="2" type="boolean" value="true"/>
+	</bean>
+	
+	<!-- Foo foo5 = new Foo(bar); 와 같은 설정 -->
+	<bean id="foo5" class="sample2.Foo">
+		<constructor-arg>
+			<ref bean="bar"/>
+		</constructor-arg>
+	</bean>
+	
+	<!-- Foo foo6 = new Foo(bar); 와 같은 설정 -->
+	<bean id="foo6" class="sample2.Foo">
+		<constructor-arg ref="bar"/>
+	</bean>
+	
+	<!-- Bar bar = new Bar(); 와 같은 설정 -->
+	<bean id="bar" class="sample2.Bar"/>
+</beans>

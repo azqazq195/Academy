@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$(".item:eq(0)").click(function() {
+			var image = $(this).attr("href");
+			// 이미지 영역을 0.5초간 숨김
+			$("#view").hide(500, function() {
+				$("#view img").attr("src", image);
+				$(this).show(300);
+			});
+			return false;
+		});
+		
+		$(".item:eq(1)").click(function() {
+			var image = $(this).attr("href");
+			// 이미지 영역을 0.5초간 숨김
+			$("#view").fadeOut(500, function() {
+				$("#view img").attr("src", image);
+				$(this).fadeIn(300);
+			});
+			return false;
+		});
+		
+		$(".item:eq(2)").click(function() {
+			var image = $(this).attr("href");
+			// 이미지 영역을 0.5초간 숨김
+			$("#view").slideUp(500, function() {
+				$("#view img").attr("src", image);
+				$(this).slideDown(300);
+			});
+			return false;
+		});
+	});
+</script>
+
+<style type="text/css">
+#thumb {
+	padding: 0; margin: 0;
+	list-style: none;
+	width: 100px;
+	float: left;
+}
+#thumb li {
+	padding: 5px 10px;
+}
+#thumb img {
+	width: 80px; height: 80px;
+}
+#view {
+	padding: 5px 0; width: 360px; height: 270px; 
+	float: left;
+}
+#view img {
+	width: 100%; height: 100%;
+}
+</style>
+</head>
+<body>
+	<ul id="thumb">
+		<li><a href="img/1.jpg" class="item">
+			<img alt="이미지" src="img/1.jpg"></a></li>
+		<li><a href="img/2.jpg" class="item">
+			<img alt="이미지" src="img/2.jpg"></a></li>
+		<li><a href="img/3.jpg" class="item">
+			<img alt="이미지" src="img/3.jpg"></a></li>
+	</ul>
+	
+	<div id="view"><img alt="이미지" src="img/1.jpg"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

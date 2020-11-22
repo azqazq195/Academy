@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		// 생성된 태그수를 카운트하는 변수
+		var i=1;
+		// 추가
+		$("input:eq(0)").click(function() {
+			// 새로운 태그 생성
+			var li1 = $("<li>").css("color", 'red').html("추가항목" + i++);
+			var li2 = $("<li>").css("color", 'green').html("추가항목" + i++);
+			var li3 = $("<li>").css("color", 'blue').html("추가항목" + i++);
+			// 새로 추가된 태그에 이벤트 설정
+			li1.click(function(){
+				$(this).remove();
+			});
+			li2.click(function(){
+				$(this).remove();
+			});
+			li3.click(function(){
+				$(this).remove();
+			});
+			// <ul> 태그에 <li> 태그 추가하기
+			// A.append(B) : A에 B를 추가
+			// B.appendTo(A) : B를 A에 추가
+			$("ul").append(li1).append(li2).append(li3);
+		});
+		// 삭제
+		$("input:eq(1)").click(function() {
+			$("ul").empty();
+		});
+	});
+</script>
+</head>
+<body>
+	<input type="button" value="추가">
+	<input type="button" value="삭제">
+	<!-- 동적으로 추가될 태그 -->
+	<ul></ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

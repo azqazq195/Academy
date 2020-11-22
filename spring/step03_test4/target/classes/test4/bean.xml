@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="sungjukDTO" class="test4.SungjukDTO">
+		<constructor-arg value="홍길동"/>
+		<constructor-arg value="97"/>
+		<constructor-arg value="100"/>
+		<constructor-arg value="95"/>
+	</bean>
+	
+	<bean id="sungjuk" class="test4.SungjukImpl">
+		<constructor-arg ref="sungjukDTO"/>
+	</bean>
+</beans>

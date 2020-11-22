@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="plugins/tmpl/jquery.tmpl.min.js"></script>
+<script type="text/javascript">
+	$(function(){			
+			$.ajax({
+				url: "ajax/json/bbs.jsp",
+				type: "get",
+				dataType: "json",
+				timeout: 30000,
+				cache: false,
+				success: function(json){
+					$("h1.title").html(json.title);
+					$("div.exec:eq(0)").html(json.description);
+					$("div.exec:eq(1)").html(json.total);
+					// 템플릿 사용
+					var tmpl = $("#itemTemplate").tmpl(json.item);
+					// 화면에 출력
+					$("div.example > table > tbody").append(tmpl);
+				},
+				error: function(xhr, textStatus, errorThrown){
+					var result = textStatus + ", " + xhr.status + ', ' + errorThrown;
+					$("#result").html(result);
+				}
+			});		
+	});
+</script>
+
+<style type="text/css">
+table {
+	display: block;
+	width: 100%;
+	font-size: 14px;
+	text-align: center;
+}
+table tr:after {
+	content: "";
+	display: block;
+	float: none;
+	clear: both;
+}
+table .left {
+	text-align: left;
+}
+thead, tbody, tr {
+	display: block;
+	width: 100%;
+}
+td, th {
+	display: block;
+	float: left;
+	padding: 10px 0;
+}
+table thead {
+	border-bottom: 2px solid #285E8E;
+	font-weight: bold;
+}
+table tbody tr {
+	border-bottom: 1px dotted #ccc;
+}
+.example table .no {width: 10%;}
+.example table .subject {width: 60%;}
+.example table .hit {width: 10%;}
+.example table .date {width: 20%;}
+</style>
+
+<!-- 템플릿으로 사용할 HTML 태그 -->
+<script type="text/x-jquery-tmpl" id="itemTemplate">
+	<tr>
+		<td class="no">${no}</td>
+		<td class="left subject">${subject}</td>
+		<td class="hit">${hit}</td>
+		<td class="date">${date}</td>
+	</tr>
+</script>
+</head>
+<body>
+	<h1 class="title"></h1>
+	<div class="exec"></div>
+	<div class="exec">
+		총 게시물 수 : <span></span>개
+	</div>
+	
+	<div class="example">
+		<table>
+			<thead>
+				<tr>
+					<th class="no">번호</th>
+					<th class="subject">제목</th>
+					<th class="hit">조회수</th>
+					<th class="date">작성일시</th>
+				</tr>
+			</thead>
+			
+			<!-- 목록이 출력될 곳 -->
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

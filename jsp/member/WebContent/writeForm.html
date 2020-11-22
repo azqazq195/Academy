@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+    <script type="text/javascript" src="memberScript.js"></script>
+    <!--   <script type="text/javascript" src="memberScript.js"></script>-->
+  </head>
+  <body>
+    <form
+      name="table"
+      onsubmit="doSubmit(); return false;"
+      action="../../6-JavaScript/WebContent/exam26.html"
+      method="POST"
+    >
+      <table border="1">
+        <tr>
+          <th>이름</th>
+          <td>
+            <input type="text" name="user_name" placeholder="이름 입력" />
+          </td>
+        </tr>
+        <tr>
+          <th>아이디</th>
+          <td>
+            <input type="text" name="user_id" placeholder="아이디 입력" />
+          </td>
+        </tr>
+        <tr>
+          <th>비밀번호</th>
+          <td>
+            <input type="password" name="user_pw" placeholder="비밀번호 입력" />
+          </td>
+        </tr>
+        <tr>
+          <th>비밀번호 확인</th>
+          <td>
+            <input
+              type="password"
+              name="user_pwCheck"
+              placeholder="비밀번호 재입력"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th>성별</th>
+          <td>
+            <input type="radio" name="gender" value="M" />남자
+            <input type="radio" name="gender" value="F" />여자
+          </td>
+        </tr>
+        <tr>
+          <th>이메일</th>
+          <td>
+            <input type="text" name="user_email1" placeholder="이베일 입력" />@
+            <select name="user_email2">
+              <option value="gmail" contenteditable="true">gmail.com</option>
+              <option value="naver">naver.com</option>
+              <option value="naver">nate.com</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th>핸드폰</th>
+          <td>
+            <select name="user_phone1" style="width: 80px;">
+              <option value="010">010</option>
+              <option value="011">011</option> </select
+            >- <input type="text" name="user_phone2" style="width: 80px;" />-
+            <input type="text" name="user_phone3" style="width: 80px;" />
+          </td>
+        </tr>
+        <tr align="center">
+          <td colspan="2">
+            <input type="submit" name="signUp" value="회원 가입" />
+            <input type="reset" name="reset" value="다시 작성" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

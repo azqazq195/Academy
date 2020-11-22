@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 
+		scope="singleton" : bean 객체를 1개만 만들고, 요청이 올 때마다 같은 bean 객체를 줌
+							=> 기본값은 scope="singleton" 
+		scope="prototype" : 요청이 올 때마다 bean 객체를 새로 생성해서 줌
+	 -->
+	<bean id="userService" class="sample3.UserServiceImpl" scope="prototype"/>
+</beans>

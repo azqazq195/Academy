@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FragmentExam5</string>
+    <string-array name="image_titles">
+        <item>첫번째 이미지</item>
+        <item>두번째 이미지</item>
+        <item>세번째 이미지</item>
+    </string-array>
+</resources>

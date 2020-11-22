@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="calcAdd" class="test2.CalcAdd">
+		<constructor-arg value="25"/>
+		<constructor-arg value="36"/>
+	</bean>
+	
+	<bean id="calcMul" class="test2.CalcMul">
+		<property name="x" value="25"/>
+		<property name="y" value="36"/>
+	</bean>
+</beans>

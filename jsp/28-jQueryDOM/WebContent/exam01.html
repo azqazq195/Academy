@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("td:eq(4)").css("background", "#ffff00");
+		$("td").eq(2).css("background", "#ff0000");
+		$("td:eq(4)").next().css("background", "#00ff00");
+		$("td").eq(4).prev().css("background", "#0000ff");
+		$("td:eq(4)").parent().css("color", "#ffffff");
+	});
+</script>
+
+<style type="text/css">
+td {
+	width: 100px;
+	height: 100px;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<td>1번</td>
+			<td>2번</td>
+			<td>3번</td>
+		</tr>
+		<tr>
+			<td>4번</td>
+			<td>5번</td>
+			<td>6번</td>
+		</tr>
+		<tr>
+			<td>7번</td>
+			<td>8번</td>
+			<td>9번</td>
+		</tr>
+	</table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

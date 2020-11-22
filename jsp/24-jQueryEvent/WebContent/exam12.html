@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/event.css">
+<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$(window).resize(function() {
+			$("#result").html("<p>" + $(window).width() 
+					+ "x" + $(window).height() + "</p>"); 
+		});
+	});
+</script>
+</head>
+<body>
+	<h2>창크기 조절 이벤트</h2>
+	<div id="result"></div>
+</body>
+</html>

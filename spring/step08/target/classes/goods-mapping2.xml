@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.goodsMapper">
+	<!-- ?자리에는 #{변수명} : getter 설정 -> get변수명(); -->
+	<!-- parameterType="test02.GoodsVO" : sql문에서 사용할 데이터 -->
+	<insert id="insertGoods" parameterType="test02.GoodsVO">
+		insert into goods values (#{code}, #{name}, #{price}, #{maker})
+	</insert>
+	
+	<delete id="deleteGoods" parameterType="test02.GoodsVO">
+		delete goods where code=#{code}
+	</delete>
+	
+	<!-- 상세 보기 -->
+	<!-- resultType="test02.GoodsVO" : 1.리턴 자료형 -->
+	<select id="getGoods" parameterType="test02.GoodsVO" resultType="test02.GoodsVO">
+		select * from goods where code=#{code}
+	</select>
+	
+	<!-- 목록 보기 -->
+	<!-- resultType="test02.GoodsVO" : 2. 리스트 객체에 저장될 자료형 -->
+	<select id="getGoodsList" resultType="test02.GoodsVO">
+		select * from goods
+	</select>
+</mapper>

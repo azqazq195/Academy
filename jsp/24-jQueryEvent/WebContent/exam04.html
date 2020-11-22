@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/event.css">
+<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		// hover 이벤트
+		$("#input").hover(function() {
+			// 태그에 마우스가 올라갔을 때
+			$("#result").html("태그에 마우스가 올라갔을 때");
+		}, function() {
+			// 태그에서 마우스가 빠져나왔을 때
+			$("#result").html("태그에서 마우스가 빠져나왔을 때");
+		});
+	});
+</script>
+</head>
+<body>
+	<h1>마우스 이벤트 확인하기</h1>
+	<div id="input">Do it in here~!!</div>
+	<h2>결과</h2>
+	<div id="result"></div>
+</body>
+</html>
+
+
+
+
+
+

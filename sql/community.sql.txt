@@ -1,0 +1,54 @@
+-- 테이블
+create table community (
+	seq number not null,			-- 일렬번호
+	user_name varchar2(15) not null,	-- 이름
+	user_pwd varchar2(150) not null,	-- 비밀번호
+	email varchar2(150) not null,		-- 이메일
+	subject varchar2(256) not null,		-- 제목
+	content varchar2(2000) not null,	-- 내용
+	reg_date date not null,			-- 등록 일시
+	edit_date date not null,		-- 수정 일시
+	primary key(seq)
+);
+-- 테이블 없애기
+drop table community purge;
+-- table 확인
+select * from tab;
+
+-- 시퀀스 객체 생성
+create sequence seq_comm nocache nocycle;
+
+-- 시퀀스 객체 삭제
+drop sequence seq_comm;
+
+-- insert
+insert into community values 
+(seq_comm.nextval, '홍길동', '1234', 'hong@naver.com',
+ '제목입니다.', '내용입니다.', sysdate, sysdate);
+
+-- select
+select * from community;
+select * from community where seq=1;
+
+-- update
+update community set
+	user_name='홍길동',
+	email='num1@naver.com',
+	subject='수정된 제목입니다.',
+	content='수정된 내용입니다.',
+	edit_date=sysdate
+where seq=1 and user_pwd='1234';
+
+-- delete
+delete from community 
+where seq=1 and user_pwd='1234';
+
+-- DB 저장
+commit;
+
+
+
+
+
+
+
